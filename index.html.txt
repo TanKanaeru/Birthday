@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>System Notification</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:#000;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+min-height:100vh;
+padding:40px 0;
+font-family:'Orbitron',sans-serif;
+color:white;
+margin:0;
+overflow-y:auto;
+}
+
+.panel{
+position:relative;
+background:linear-gradient(135deg,#3ea6ff,#1b4ed8);
+border:3px solid #9bd4ff;
+box-shadow:0 0 25px #3ea6ff;
+border-radius:12px;
+width:520px;
+max-width:90%;
+padding:35px;
+overflow:hidden;
+animation:panelAppear .8s ease;
+}
+
+@keyframes panelAppear{
+0%{opacity:0;transform:scale(.95);}
+100%{opacity:1;transform:scale(1);}
+}
+
+/* ORB EFFECT */
+
+.panel::before{
+content:"";
+position:absolute;
+width:140px;
+height:140px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+top:-40px;
+right:-40px;
+animation:float 6s infinite alternate;
+}
+
+.panel::after{
+content:"";
+position:absolute;
+width:100px;
+height:100px;
+background:rgba(255,255,255,0.05);
+border-radius:50%;
+bottom:-30px;
+left:-30px;
+animation:float 5s infinite alternate;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-10px)}
+}
+
+.title{
+font-size:24px;
+text-align:center;
+margin-bottom:20px;
+font-weight:600;
+}
+
+.text{
+font-family:Arial,sans-serif;
+line-height:1.7;
+font-size:14px;
+}
+
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+background:white;
+color:#1b4ed8;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px white;
+}
+
+.hidden{
+display:none;
+}
+
+/* BIYOO */
+
+.biyoo{
+position:absolute;
+bottom:10px;
+left:10px;
+width:70px;height:auto;
+animation:bounce 3s infinite;pointer-events:none;
+}
+  
+  #screen2 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:50px;}
+
+  #screen3 .biyoo{right:10px;bottom:10px;left:auto;}
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+  
+  <audio id="systemSound">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c4f7f4f3c.mp3">
+</audio>
+
+<audio id="clickSound">
+<source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443b.mp3">
+</audio>
+
+<!-- SCREEN 1 -->
+
+<div class="panel" id="screen1">
+
+<div class="title">&lt; SYSTEM NOTIFICATION &gt;</div>
+
+<div class="text">
+
+A message from a constellation has arrived.<br><br>
+
+Constellation Name: Tan Kanaeru<br>
+Scenario Type: Birthday Event<br><br>
+
+Clear Condition:<br>
+Read the message carefully.<br><br>
+
+Reward:<br>
+A special gift prepared for you.
+
+</div>
+
+<div class="buttons">
+<div></div>
+<button onclick="openLetter()">Start Scenario</button>
+</div>
+
+<img class="biyoo" src="https://image2url.com/r2/default/images/1773402361478-d113ec3b-b359-4a60-a977-a3f423a3fd73.png">
+
+</div>
+  
+<!-- SCREEN 2 -->
+
+<div class="panel hidden" id="screen2">
+
+<div class="title">Message From Constellation</div>
+
+<div class="text">
+
+HAPPY BIRTHDAY IDAA!! Selamat udah 20 tahun part 2 ehe~
+How was the gift? I hope you like it
+<br><br>
+
+anyway, aku mau bilang terimakasih baanyaaaak buat ida yang udah nemenin aku selama hampir 2 tahun and still counting. Terimakasih udah mau tau dan nerima sosok intan ini yang sangat berbeda dari diri kamu in many things💙
+
+<br><br>
+
+And you know aku selalu bilang ketemu bajok itu sebuah miracle and it goes the same to you too, karena yuyur nih selama ini pertemanan aku tuh seperti yang mungkin kamu tau kalau diibaratkan sebuah pekerjaan aku udah kerja serabutan kali yang literally sana sini luntang lantung, tapi kamu tuh bikin aku punya sandaran eaaaa.. apalah. Kamu tuh mungkin satu-satunya orang yang mungkin paling menerima aku dari segala keanehan aku ini cause i know you're so ophen mindeu and i'm so sorry kalau keanehan aku ini bikin kamu feel burdensome. Terus kamu tuh somehow selalu notice hal-hal terkecil dari aku yang bahkan keluarga aku atau aku sendiri pun gak nyadar or maybe aku just being denial 🫣 but thanks for that perlahan engkau pergi~ gk ya perlahan aku mulai nerima hal-hal itu(?) i hope so...
+  
+<br><br>
+  
+Dan juga banyak banget kejadian yang terjadi selama aku bareng kamu. Mungkin yang paling memorable dari aku tuh yaa ketika fase dimana aku tuh mood swing(?), yuyur aku gak tau itu tuh pastinya karena apa, apakah faktornya dari sisi avoidant aku,,,karena kalau iya aku bisa bilang kamu tuh orang yang tepat buat ngobatin sifat avoidant aku ini. Aku sendiri sebenernya pingin bisa sembuh dari hal ini tapi aku tau jalan ini gak bakal mudah karena saat itu ketika aku ngerasain lonjakan emosi itu jujur rasanya gak nyaman banget tapi mau gak mau aku harus ngelewatin itu kalau emang mau sembuh, mungkin saat itu kalau aku terusin perasaan itu bisa aja ada sedikit chance kalau aku bisa sembuh, yaa gak berharap sih soalnya sifat ini dibentuk selama aku grow up dan gak mungkin bisa sembuh secara instan. anyway ida dari kejadian ini aku juga mau berterimakasih karena udah membuka hal baru yang gak pernah aku rasain sebelumnya.
+  
+  <br><br>
+  
+  Last but not least aku berharap ida diberi umur panjang, semoga bisa jadi rich onty (traktir aku ya kak 👉🏻👈🏻), diberi kesehatan (jan kopi mulu ya dek..mam sayur yang banyak...), semoga work-life balance, dapet gaji 2 atau bahkan 3 digit, aamiin...Dan juga setelah ini kita bakal magang (i'm so sorry for mentioning ts) yang mungkin bikin kita jadi jarang contact-an well we never know but i hope not, semoga kita tetep bisa in contact. Kalau semisal selama jarang contact itu sifat avoidant aku kambuh mon maap yee plis jan tinggalin aku tolong tarik aku perlahan..aja, soalnya kalau umpannya gak menarik ikan juga gak akan tertarik ehe~ duh sorry malah mintol ke yang lagi ultah. Anyway i would say this is my first kata-kata panjang apalah itu yang aku kasih ke someone dan yuyur gak yakin aku bakal ngasih kamu this thing again in the future jadi jan berharap
+
+<br><br>
+
+p.s
+aku ngetik ini sambil dengerin kobo nyanyi dan ditemenin sama kobocil to set the mood (asik gaya nyoo).
+a-aku gak nangis kok sambil ngetik ini hmmpp mana mungkin intan begitu. ohh and thanks for being a good sensei for me🙇🏻‍♀️
+
+</div>
+
+<div class="buttons">
+<button onclick="backToStart()">Back</button>
+<button onclick="showReward()">Receive Reward</button>
+</div>
+
+<img class="biyoo" src="https://image2url.com/r2/default/images/1773402361478-d113ec3b-b359-4a60-a977-a3f423a3fd73.png">
+
+</div>
+
+
+<!-- SCREEN 3 -->
+
+<div class="panel hidden" id="screen3">
+
+<div class="title">&lt; REWARD OBTAINED &gt;</div>
+
+<div class="text">
+
+• Handmade illustration<br>
+• Homemade food<br>
+• A special birthday message<br><br>
+
+Scenario Completed.
+
+</div>
+
+<div class="buttons">
+<button onclick="backToLetter()">Back</button>
+</div>
+
+<img class="biyoo" src="https://image2url.com/r2/default/images/1773402361478-d113ec3b-b359-4a60-a977-a3f423a3fd73.png">
+
+</div>
+
+
+<script>
+
+let systemSound = document.getElementById("systemSound")
+let clickSound = document.getElementById("clickSound")
+
+function playClick(){
+clickSound.currentTime=0
+clickSound.play()
+}
+
+function openLetter(){
+systemSound.play()
+playClick()
+document.getElementById("screen1").classList.add("hidden")
+document.getElementById("screen2").classList.remove("hidden")
+}
+
+function showReward(){
+playClick()
+document.getElementById("screen2").classList.add("hidden")
+document.getElementById("screen3").classList.remove("hidden")
+}
+
+function backToStart(){
+playClick()
+document.getElementById("screen2").classList.add("hidden")
+document.getElementById("screen1").classList.remove("hidden")
+}
+
+function backToLetter(){
+playClick()
+document.getElementById("screen3").classList.add("hidden")
+document.getElementById("screen2").classList.remove("hidden")
+}
+
+</script>
+
+</body>
+</html>
