@@ -71,8 +71,8 @@ left:-30px;animation:float 5s infinite alternate;
 
 .title{
 text-align:center;
-font-size:22px;
-margin-bottom:15px;
+font-size:24px;
+margin-bottom:20x;font-weight:600;
 }
 
 .text{
@@ -109,17 +109,54 @@ pointer-events:none;
 /* beda posisi */
 
 #screen1 .biyoo{bottom:10px;left:10px;}
-#screen2 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:50px;}
-#screen3 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:55px;}
+#screen2 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:40px;}
+#screen3 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:40px;}
 #screen4 .biyoo{top:10px;right:10px;bottom:auto;left:auto;width:50px;}
 #screen5 .biyoo{bottom:10px;left:auto;right:10px;;transform:translateX(-50%);}
-  
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .hidden{display:none;}
 
 </style>
 </head>
 
 <body>
+  
+  <div id="lockScreen" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+color:white;
+font-family:'Orbitron',sans-serif;
+text-align:center;
+">
+
+<h2>&lt; SYSTEM LOCK &gt;</h2>
+<p>who stands beside you in every scenario?</p>
+
+<input id="pwInput" type="text" placeholder="Enter Access Code"
+style="padding:10px;border-radius:6px;border:none;margin-top:10px;">
+
+<button onclick="checkPassword()" style="
+margin-top:10px;
+padding:10px 15px;
+border:none;
+border-radius:6px;
+background:white;
+color:#1b4ed8;
+cursor:pointer;
+">Enter</button>
+
+<p id="msg" style="margin-top:15px;font-size:13px;"></p>
+
+</div>
 
 <!-- AUDIO -->
 <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443b.mp3"></audio>
@@ -148,7 +185,7 @@ A special gift prepared for you.
 
 <!-- 2 SURAT PART 1 -->
 <div class="panel hidden" id="screen2">
-<div class="title">Message From Constellation</div>
+<div class="title">&lt;Message From Constellation&gt;</div>
 <div class="text">
 
 HAPPY BIRTHDAY IDAA!! Selamat udah 20 tahun part 2 ehe~ How was the gift? well i try my best and I hope you like it
@@ -177,9 +214,9 @@ Dan juga banyak banget kejadian yang terjadi selama aku bareng kamu. Mungkin yan
 
 <!-- 3 SURAT PART 2 -->
 <div class="panel hidden" id="screen3">
-<div class="title">Message From Constellation</div>
+<div class="title">&lt;Message From Constellation&gt;</div>
 <div class="text">
-
+  
 Last but not least aku berharap ida diberi umur panjang, semoga bisa jadi rich onty (traktir aku ya kak 👉🏻👈🏻), diberi kesehatan (jan kopi mulu ya dek..mam sayur yang banyak...), semoga work-life balance, dapet gaji 2 atau bahkan 3 digit, aamiin...Dan juga setelah ini kita bakal magang (i'm so sorry for mentioning ts) yang mungkin bikin kita jadi jarang contact-an well we never know but i hope not, semoga kita tetep bisa in contact. Kalau semisal selama jarang contact itu sifat avoidant aku kambuh mon maap yee plis jan tinggalin aku tolong tarik aku perlahan..aja, soalnya kalau umpannya gak menarik ikan juga gak akan tertarik ehe~ duh sorry malah minta tolong ke yang lagi ultah. Anyway i would say this is my first kata-kata panjang apalah itu yang aku kasih ke someone dan yuyur gak yakin aku bakal ngasih kamu this thing again in the future jadi jan berharap
 
 <br><br>
@@ -240,10 +277,27 @@ Scenario Completed.
 </div>
 
   <script>
-let pass = prompt("Enter password:");
+function checkPassword(){
 
-if(pass !== "Yoongi's Wife"){
-document.body.innerHTML = "<h1 style='color:white;text-align:center;'>Access Denied</h1>";
+let input = document.getElementById("pwInput").value.toLowerCase().trim()
+let msg = document.getElementById("msg")
+
+if(input === "your partner in crime"){
+
+msg.innerHTML = "[ System has recognized the user. ]<br>Access granted."
+msg.style.color = "#8fff9c"
+
+setTimeout(()=>{
+document.getElementById("lockScreen").style.display="none"
+},1000)
+
+}else{
+
+msg.innerHTML = "[ You are not qualified to access this scenario. ]"
+msg.style.color = "#ff6b6b"
+
+}
+
 }
 </script>
   
